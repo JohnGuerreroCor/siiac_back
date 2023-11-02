@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jndi.JndiTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 @Configuration
 @EnableTransactionManagement
 @Component
@@ -25,7 +26,7 @@ public class AppConfig {
 	@Autowired
 	private DataSource dataSource;
 	
-	@Bean(name = "JDBCTemplatePlanesConsulta")
+	@Bean(name = "JDBCTemplateUscoConsulta")
 	public JdbcTemplate jdbcTemplateConsultasjdbc() throws Exception {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		jdbcTemplate.setDataSource(dataSource);
@@ -34,18 +35,18 @@ public class AppConfig {
 	}
 	
 	
-	@Bean(name = "JDBCTemplatePlanesLogin")
+	@Bean(name = "JDBCTemplateUscoLogin")
 	public JdbcTemplate jdbcTemplateLogin() throws Exception {
 
 		DataSource dataSource = null;
 
 		if (perfilSeleccionado.equals("local")) {
 
-			dataSource = (DataSource) new JndiTemplate().lookup("jboss/datasources/academia3000_jankarlos");
+			dataSource = (DataSource) new JndiTemplate().lookup("jboss/datasources/john");
 
 		} else if (perfilSeleccionado.equals("test") || perfilSeleccionado.equals("produccion")) {
 
-			dataSource = (DataSource) new JndiTemplate().lookup("java:jboss/datasources/ControlAccesoWebLoginDS");
+			dataSource = (DataSource) new JndiTemplate().lookup("java:jboss/datasources/john");
 
 		}
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -54,18 +55,18 @@ public class AppConfig {
 		return jdbcTemplate;
 	}
 	
-	@Bean(name = "JDBCTemplateEjecucion")
+	@Bean(name = "JDBCTemplateUscoEjecucion")
 	public JdbcTemplate jdbcTemplateEjecucion() throws Exception {
 
 		DataSource dataSource = null;
 
 		if (perfilSeleccionado.equals("local")) {
 
-			dataSource = (DataSource) new JndiTemplate().lookup("jboss/datasources/academia3000_jankarlos");
+			dataSource = (DataSource) new JndiTemplate().lookup("jboss/datasources/john");
 
 		} else if (perfilSeleccionado.equals("test") || perfilSeleccionado.equals("produccion")) {
 
-			dataSource = (DataSource) new JndiTemplate().lookup("java:jboss/datasources/ControlAccesoWebEjecucionDS");
+			dataSource = (DataSource) new JndiTemplate().lookup("java:jboss/datasources/john");
 
 		}
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -74,7 +75,7 @@ public class AppConfig {
 		return jdbcTemplate;
 	}
 	
-	@Bean(name = "NamedJDBCTemplateEncuestasConsulta")
+	@Bean(name = "NamedJDBCTemplateJohnConsulta")
 	public NamedParameterJdbcTemplate jdbcTemplateConsulta() throws Exception {
 
 		return new NamedParameterJdbcTemplate(dataSource);

@@ -11,7 +11,7 @@ import com.usco.edu.dao.IFotoCarnetDao;
 public class FotoCarnetDaoImpl implements IFotoCarnetDao {
 	
 	@Autowired
-	@Qualifier("JDBCTemplatePlanesConsulta")
+	@Qualifier("JDBCTemplateUscoConsulta")
 	public JdbcTemplate jdbcTemplate;
 
 	@Override

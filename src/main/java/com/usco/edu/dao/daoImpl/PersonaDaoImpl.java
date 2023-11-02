@@ -15,7 +15,7 @@ import com.usco.edu.resultSetExtractor.PersonaSetExtractor;
 public class PersonaDaoImpl implements IPersonaDao  {
 	
 	@Autowired
-	@Qualifier("JDBCTemplatePlanesConsulta")
+	@Qualifier("JDBCTemplateUscoConsulta")
 	public JdbcTemplate jdbcTemplate;
 	
 	@Override

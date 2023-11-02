@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+
 @Component
 @PropertySource("classpath:application.properties")
 public class ConexionBuilder {
@@ -25,12 +26,6 @@ public class ConexionBuilder {
 		
 		dataSource = dataSourceBuilder.build();
 		return dataSource;
-		/* return DataSourceBuilder.create()
-	              .driverClassName(driverProperties)
-	              .url(urlProperties)
-	              .username(usuario)
-	              .password(clave)
-	              .build();*/
 	}
 	
 	private String buildUrl(String usuario , String clave) {

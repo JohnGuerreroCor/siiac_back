@@ -13,13 +13,12 @@ public class UsuarioRowMapper implements RowMapper<Usuario>{
 	@Override
 	public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Usuario user = new Usuario();
-		user.setId(rs.getInt("vig_codigo"));
-		user.setPassword(rs.getString("vig_email"));
-		user.setRole(rs.getString("vig_empresa"));
-		user.setUsername(rs.getString("vig_identificacion"));
-		user.setState(rs.getInt("vig_estado") > 0 ? true : false);
-		user.setVigilante(new VigilanteRowMapper().mapRow(rs, rowNum));
-		user.setPuestoVigilancia(new PuestoVigilanciaRowMapper().mapRow(rs, rowNum));
+		user.setCodigo(rs.getInt("usu_codigo"));
+		user.setPassword(rs.getString("uwd2"));
+		user.setRole(rs.getString("usu_estado"));
+		user.setUsername(rs.getString("usu_nombre"));
+		user.setState(rs.getInt("usu_estado") > 0 ? true : false);
+		user.setPersona(new PersonaUsuarioRowMapper().mapRow(rs, rowNum));
 		return user;
 	}
 

@@ -1,75 +1,90 @@
 package com.usco.edu.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "persona", schema = "dbo")
-public class Persona implements Serializable{
+@Data
+@NoArgsConstructor
+public class Persona implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "per_codigo", columnDefinition = "integer")
-	private Long codigo;
+	private int codigo;
 	
-	@Column(name = "per_nombre")
-	private String nombre;
-
-	@Column(name = "per_apellido")
-	private String apellido;
-	
-	@Column(name = "per_identificacion")
 	private String identificacion;
 	
-	@Column(name = "per_email_interno")
-	private String emailInterno;
+	private TipoIdentificacion tipoId;
+	
+	private String libretaMilitar;
 
-	public String getEmailInterno() {
-		return emailInterno;
-	}
+	private String nombre;
 
-	public void setEmailInterno(String emailInterno) {
-		this.emailInterno = emailInterno;
-	}
-
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public String getIdentificacion() {
-		return identificacion;
-	}
-
-	public void setIdentificacion(String identificacion) {
-		this.identificacion = identificacion;
-	}
+	private String apellido;
+	
+	private SexoBiologico sexoBiologico;
+	
+	private String lugarExpedicion;
+	
+	private Date fechaExpedicion;
+	
+	private Date fechaNacimiento;
+	
+	private String direccion;
+	
+	private String movil;
+	
+	private String fijo;
+	
+	private EstadoCivil estadoCivil;
+	
+	private String lugarNacimiento;
+	
+	private Estrato estrato;
+	
+	private int paisResidencia;
+	
+	private String departamentoResidencia;
+	
+	private String municipioResidencia;
+	
+	private String lugarResidencia;
+	
+	private String barrio;
+	
+	private int epsAfiliacion;
+	
+	private String sisben;
+	
+	private GrupoEtnico grupoEtnico;
+	
+	private PuebloIndigena puebloIndigena;
+	
+	private ComunidadNegra comunidadNegra;
+	
+	private PersonaDiscapacidad personaDiscapacidad;
+	
+	private DiscapacidadTipo discapacidadTipo;
+	
+	private TalentoExcepcional talentoExepcional;
+	
+	private String familiarDireccion;
+	
+	private String familiarNombre;
+	
+	private String familiarTelefono;
+	
+	private String familiarLugarResidencia;
+	
+	private String correo;
+	
+	private String correoInterno;
+	
+	private GrupoSanguineo grupoSanguineo;
+	
+	private int estado;
+	
+	private Date fechaRegistro;
 	
 	private static final long serialVersionUID = 1L;
-
 }
