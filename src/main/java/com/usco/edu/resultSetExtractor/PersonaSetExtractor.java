@@ -8,17 +8,18 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import com.usco.edu.entities.PersonaCarnet;
-import com.usco.edu.rowMapper.PersonaCarnetRowMapper;
+import com.usco.edu.entities.Persona;
+import com.usco.edu.rowMapper.PersonaRowMapper;
 
-public class PersonaSetExtractor implements ResultSetExtractor<List<PersonaCarnet>> {
-	
+public class PersonaSetExtractor implements ResultSetExtractor<List<Persona>>{
+
 	@Override
-	public List<PersonaCarnet> extractData(ResultSet rs) throws SQLException, DataAccessException {
-		List<PersonaCarnet> list = new ArrayList<PersonaCarnet>();
+	public List<Persona> extractData(ResultSet rs) throws SQLException, DataAccessException {
+		List<Persona> list = new ArrayList<Persona>();
 		while (rs.next()) {
-			list.add(new PersonaCarnetRowMapper().mapRow(rs, (rs.getRow() - 1)));
+			list.add(new PersonaRowMapper().mapRow(rs, (rs.getRow() - 1)));
 		}
+		
 		return list;
 	}
 

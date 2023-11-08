@@ -24,6 +24,8 @@ public class Persona implements Serializable {
 	
 	private SexoBiologico sexoBiologico;
 	
+	private String sexoBiologicoNombre;
+	
 	private String lugarExpedicion;
 	
 	private Date fechaExpedicion;
@@ -41,6 +43,8 @@ public class Persona implements Serializable {
 	private String lugarNacimiento;
 	
 	private Estrato estrato;
+	
+	private String estratoNombre;
 	
 	private int paisResidencia;
 	
@@ -71,6 +75,8 @@ public class Persona implements Serializable {
 	private String familiarDireccion;
 	
 	private String familiarNombre;
+	
+	private String familiarCorreo;
 	
 	private String familiarTelefono;
 	
