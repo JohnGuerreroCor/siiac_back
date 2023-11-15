@@ -14,7 +14,12 @@ public class MunicipioRowMapper implements RowMapper<Municipio>{
 		Municipio municipio = new Municipio();
 		municipio.setCodigo(rs.getInt("mun_codigo"));
 		municipio.setNombre(rs.getString("mun_nombre"));
+		municipio.setDivipola(rs.getString("mun_divipola"));
+		municipio.setTipo(rs.getString("mun_tipo"));
+		municipio.setArea(rs.getString("mun_area_metropolitana"));
+		municipio.setDepartamento(new DepartamentoRowMapper().mapRow(rs, rowNum));
+		
 		return municipio;
 	}
-
+	
 }
