@@ -49,8 +49,7 @@ public class InstitucionDaoImpl implements IInstitucionDao{
 	
 	@Override
 	public List<Institucion> obtenerInstitucion() {
-		String sql = "SELECT DISTINCT ON (i.ins_nit) i.ins_nit, i.*, nj.*, s.*, ca.*, ccp.*, m.*, d.*, p.*, n.* "
-				+ "FROM institucion i "
+		String sql = "SELECT top 1 * FROM institucion i "
 				+ "INNER JOIN naturaleza_juridica nj ON i.naj_codigo = nj.naj_codigo "
 				+ "INNER JOIN sector s ON i.sec_codigo = s.sec_codigo "
 				+ "INNER JOIN caracter_academico ca ON i.caa_codigo = ca.caa_codigo "
@@ -58,9 +57,7 @@ public class InstitucionDaoImpl implements IInstitucionDao{
 				+ "INNER JOIN municipio m ON ccp.mun_divipola = m.mun_divipola "
 				+ "INNER JOIN departamento d ON m.dep_divipola = d.dep_divipola "
 				+ "INNER JOIN pais p ON d.pai_codigo = p.pai_codigo "
-				//+ "INNER JOIN norma n on i.nor_codigo = n.nor_codigo "
-				//+ "inner join norma_tipo nt on n.not_codigo = nt.not_codigo "
-				+ "ORDER BY i.ins_nit, i.ins_codigo DESC;";
+				+ "order by i.ins_codigo desc";
 		return jdbcTemplate.query(sql, new InstitucionSetExtractor());
 	}
 
